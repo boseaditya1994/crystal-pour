@@ -45,7 +45,7 @@ const Hero = () => {
           start: "top top",
           end: "bottom top",
           scrub: true,
-          markers: true, // ✅ enable to debug
+          markers: false, // ✅ enable to debug
         },
       })
       .to(".right-leaf", { y: 200 }, 0)
@@ -63,7 +63,7 @@ const Hero = () => {
         end: endValue,
         scrub: true,
         pin: true,
-        markers: true, // debug
+        markers: false, // debug
       },
     });
 
