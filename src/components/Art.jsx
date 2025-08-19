@@ -1,12 +1,7 @@
-import { useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "react-responsive";
 import { useGSAP } from "@gsap/react";
 import { featureLists, goodLists } from "../../constants/index.js";
-
-// Register plugin
-gsap.registerPlugin(ScrollTrigger);
 
 const Art = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -41,9 +36,7 @@ const Art = () => {
       <div className="container mx-auto h-full pt-20">
         <h2 className="will-fade">The ART</h2>
 
-        {/* Content block */}
         <div className="content">
-          {/* Left list */}
           <ul className="space-y-4 will-fade">
             {goodLists.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
@@ -53,7 +46,6 @@ const Art = () => {
             ))}
           </ul>
 
-          {/* Center image */}
           <div className="cocktail-img">
             <img
               src="/images/under-img.jpg"
@@ -62,7 +54,6 @@ const Art = () => {
             />
           </div>
 
-          {/* Right list */}
           <ul className="space-y-4 will-fade">
             {featureLists.map((feature, index) => (
               <li key={index} className="flex items-center justify-start gap-2">
@@ -73,12 +64,11 @@ const Art = () => {
           </ul>
         </div>
 
-        {/* Masked reveal */}
-        <div className="masked-container mt-16 text-center">
+        <div className="masked-container relative top-[10rem]">
           <h2 className="will-fade">Sip-Worthy Perfection</h2>
           <div id="masked-content">
             <h3>Made with Craft, Poured with Passion</h3>
-            <p className="mt-2">
+            <p>
               This isn’t just a drink. It’s a carefully crafted moment made just
               for you.
             </p>
@@ -88,5 +78,4 @@ const Art = () => {
     </div>
   );
 };
-
 export default Art;
