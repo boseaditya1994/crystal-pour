@@ -44,29 +44,32 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" ref={sectionRef}>
-      <div className="mb-16 md:px-0 px-5">
-        <div className="content grid grid-cols-12 gap-6">
-          <div className="md:col-span-8">
+    <div id="about" ref={sectionRef} className="px-5 md:px-0">
+      <div className="mb-16">
+        <div className="content grid grid-cols-12 gap-4 md:gap-6">
+          <div className="col-span-12 md:col-span-8">
             <p className="badge">Best Cocktails</p>
-            <h2 ref={headingRef}>
+            <h2
+              ref={headingRef}
+              className="text-2xl md:text-4xl font-bold leading-snug"
+            >
               Where every detail matters <span className="text-white">-</span>{" "}
               from muddle to garnish
             </h2>
           </div>
 
-          <div className="sub-content md:col-span-4 flex flex-col justify-between">
-            <p>
+          <div className="sub-content col-span-12 md:col-span-4 flex flex-col justify-between mt-4 md:mt-0">
+            <p className="text-sm md:text-base mb-4">
               Every cocktail we serve is a reflection of our obsession with
               detail — from the first muddle to the final garnish. That care is
               what turns a simple drink into something truly memorable.
             </p>
 
             <div>
-              <p className="md:text-3xl text-xl font-bold">
+              <p className="text-2xl md:text-3xl font-bold">
                 <span>4.5</span>/5
               </p>
-              <p className="text-sm text-white-100">
+              <p className="text-xs md:text-sm text-white-100">
                 More than +12000 customers
               </p>
             </div>
@@ -75,33 +78,48 @@ const About = () => {
       </div>
 
       {/* Top grid */}
-      <div className="top-grid grid grid-cols-12 gap-6 mb-10">
-        <div className="md:col-span-3 relative">
-          <div className="noisy absolute inset-0" />
-          <img src="/images/abt1.png" alt="grid-img-1" className="w-full" />
+      <div className="top-grid grid grid-cols-12 gap-4 md:gap-6 mb-10">
+        <div className="col-span-12 md:col-span-3 relative">
+          <img
+            src="/images/abt1.png"
+            alt="grid-img-1"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
 
-        <div className="md:col-span-6 relative">
-          <div className="noisy absolute inset-0" />
-          <img src="/images/abt2.png" alt="grid-img-2" className="w-full" />
+        <div className="col-span-12 md:col-span-6 relative">
+          <img
+            src="/images/abt2.png"
+            alt="grid-img-2"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
 
-        <div className="md:col-span-3 relative">
-          <div className="noisy absolute inset-0" />
-          <img src="/images/abt5.png" alt="grid-img-5" className="w-full" />
+        <div className="col-span-12 md:col-span-3 relative">
+          <img
+            src="/images/abt5.png"
+            alt="grid-img-5"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
       </div>
 
       {/* Bottom grid */}
-      <div className="bottom-grid grid grid-cols-12 gap-6">
-        <div className="md:col-span-8 relative">
-          <div className="noisy absolute inset-0" />
-          <img src="/images/abt3.png" alt="grid-img-3" className="w-full" />
+      <div className="bottom-grid grid grid-cols-12 gap-4 md:gap-6">
+        <div className="col-span-12 md:col-span-8 relative">
+          <img
+            src="/images/abt3.png"
+            alt="grid-img-3"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
 
-        <div className="md:col-span-4 relative">
-          <div className="noisy absolute inset-0" />
-          <img src="/images/abt4.png" alt="grid-img-4" className="w-full" />
+        <div className="col-span-12 md:col-span-4 relative">
+          <img
+            src="/images/abt4.png"
+            alt="grid-img-4"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
       </div>
     </div>
