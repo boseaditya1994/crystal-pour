@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2">
           <img src="/images/logo.png" alt="logo" className="h-8 w-auto" />
-          <p className="font-semibold text-white">Velvet Pour</p>
+          <p className="font-semibold text-white">Crystal Pour</p>
         </a>
 
         <ul className="flex gap-6 text-white">
