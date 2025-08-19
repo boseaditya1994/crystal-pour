@@ -1,26 +1,25 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/all";
 import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMediaQuery } from "react-responsive";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
   const videoRef = useRef();
-
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   useGSAP(() => {
-    const heroSplit = new SplitText(".title", {
-      type: "chars, words",
-    });
+    // Split the text
+    const heroSplit = new SplitText(".title", { type: "chars, words" });
+    const paragraphSplit = new SplitText(".subtitle", { type: "lines" });
 
-    const paragraphSplit = new SplitText(".subtitle", {
-      type: "lines",
-    });
-
-    // Apply text-gradient class once before animating
+    // Add gradient style
     heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
 
+    // Animate title chars
     gsap.from(heroSplit.chars, {
       yPercent: 100,
       duration: 1.8,
@@ -28,6 +27,7 @@ const Hero = () => {
       stagger: 0.06,
     });
 
+    // Animate subtitle lines
     gsap.from(paragraphSplit.lines, {
       opacity: 0,
       yPercent: 100,
@@ -37,6 +37,7 @@ const Hero = () => {
       delay: 1,
     });
 
+    // Scroll animations
     gsap
       .timeline({
         scrollTrigger: {
@@ -44,22 +45,25 @@ const Hero = () => {
           start: "top top",
           end: "bottom top",
           scrub: true,
+          markers: true, // ✅ enable to debug
         },
       })
       .to(".right-leaf", { y: 200 }, 0)
       .to(".left-leaf", { y: -200 }, 0)
       .to(".arrow", { y: 100 }, 0);
 
+    // Responsive scrollTrigger values
     const startValue = isMobile ? "top 50%" : "center 60%";
     const endValue = isMobile ? "120% top" : "bottom top";
 
     let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "video",
+        trigger: videoRef.current, // ✅ use the ref directly
         start: startValue,
         end: endValue,
         scrub: true,
         pin: true,
+        markers: true, // debug
       },
     });
 
@@ -87,8 +91,6 @@ const Hero = () => {
         />
 
         <div className="body">
-          {/* <img src="/images/arrow.png" alt="arrow" className="arrow" /> */}
-
           <div className="content">
             <div className="space-y-5 hidden md:block">
               <p>Cool. Crisp. Classic.</p>
